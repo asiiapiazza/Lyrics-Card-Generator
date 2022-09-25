@@ -1,0 +1,42 @@
+.rect-default {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    background-color: #F68686;
+    flex-direction: column;
+    display: flex;
+}
+
+.main-div {
+    display: flex;
+    column-gap: 10%;
+}
+
+
+.container {
+    margin-top: 3%
+}
+
+.text-lyric {
+ 
+}
+
+.content-rect {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.spotify-logo{
+    height:20px;
+    width:60px;
+    position: absolute;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    bottom: 0;
+}
+
+.footer-card
+{
+    position: absolute;
+    bottom: 0;  
+}
