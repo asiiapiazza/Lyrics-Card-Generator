@@ -1,2 +1,2 @@
-# asiiapiazza.github.io
-An application for creating Spotify Lyric Cards
+# Spotify Lyric Cards Maker
+A website for creating Spotify Lyric Cards 
