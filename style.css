@@ -1,42 +1,85 @@
 .rect-default {
     width: 500px;
-    height: 300px;
+    height: 350px;
     position: relative;
     background-color: #F68686;
     flex-direction: column;
     display: flex;
 }
 
+.container{
+    margin: auto;
+        width: 50%;
+        padding: 10px;
+}
 .main-div {
     display: flex;
+    margin-top: 5%;
     column-gap: 10%;
 }
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-
+footer {
+    margin-top: auto;
+}
+.songs-info
+{
+    display: flex;
+    flex-direction: row;
+    margin-top:10px
+}
 .container {
     margin-top: 3%
 }
 
 .text-lyric {
- 
+  
 }
 
 .content-rect {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 10px;
 }
 
-.spotify-logo{
-    height:20px;
-    width:60px;
+.spotify-logo {
+    height: 20px;
+    width: 60px;
     position: absolute;
     margin-bottom: 15px;
-    margin-left: 15px;
     bottom: 0;
 }
 
-.footer-card
-{
+.footer-card {
     position: absolute;
-    bottom: 0;  
+    bottom: 0;
 }
+
+@font-face {
+    font-family: CircularStd;
+    font-weight: bold;
+    src: url('Fonts/CircularStd-Bold.otf');
+
+
+}
+
+@font-face {
+    font-family: CircularStd;
+    font-weight: normal;
+    src: url('Fonts/CircularStd-Book.otf');
+}
+
+h2 {
+    font-family: CircularStd;
+    font-weight: bold !important;
+}
+
+h3 {
+    font-family: CircularStd;
+    font-weight: normal;
+  
+}
+
