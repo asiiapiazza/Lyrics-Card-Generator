@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
         <link rel="stylesheet" href="style.css">
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -10,41 +13,39 @@
     <body >
         <div class="container" >
             <h2 style="font-size: 70px;">Spotify Lyrics Card Maker</h2>
-
             <div class="main-div" >
+                <!-- -------------------CANVAS------------------ -->
                 <div class="canvas" id="canvas" style="border-radius: 50px; background-color: transparent;">
-                    <div class="rect-default" id="rect" style="border-radius:20px">
+                    <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;">
                         <div class="content-rect">
                             <div class="songs-info">
                                 <p id="output2"><img src="https://via.placeholder.com/80"id="output"style="width:80px; 
                                 height:80px; object-fit: cover;";/> </p>
                                 <div style="display: flex; flex-direction: column; margin-left: 20px">
+                                  
+                                        <h1 id="text-name" contenteditable="true" style="width: 360px; outline: 0px solid transparent;">Insert Name Song</h1>
+                                        <h3 contenteditable="true" id="text-author" style="font-size: 15px; width: 360px; outline: 0px solid transparent;">Insert Author</h3>
                                     
-                                    <div onClick="this.contentEditable='true'">
-                                        <h1 id="text-name">Insert Name Song</h1>
-                                    </div>
+                                </div>              
+                            </div>
 
-                                    <div onClick="this.contentEditable='true'">
-                                        <h3 id="text-author" style="font-size: 15px;">Insert Author</h3>
-                                    </div>
-                            </div>
-                        
-                        
-                            </div>
-                            <div class="text-lyric" onClick="this.contentEditable='true'">
-                                <h2 id="text-lyric">
+                       
+                                <h2 id="text-lyric" style="width: 480px; outline: 0px solid transparent;"contenteditable="true">
                                     Click to edit<br>
                                     Press enter to insert new lines<br>
                                     Or just paste some text</h2>
-                            </div>
+                   
+
                             <!-- <input type="text" id="" /> -->
-                        <div>
-                            <img src="Assets/spotify.png" class="spotify-logo" />
+                            <div>
+                                <img src="Assets/spotify.png" class="spotify-logo" />
+                            </div>
                         </div>
-                     </div>
                     </div>
                 </div>
-               
+
+
+                <!-- -------------------OPZIONI------------------ -->
                 <div class="options" style="width: 800px; display: flex;flex-direction: column;">
                     <div style="display:flex; flex-direction: row; align-content: space-around;">
                         <p style="height:fit-content"><input id="pick-file" type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)""></p>                             
@@ -55,12 +56,9 @@
                             <input id="color-text" type="color" value="#F68686" />
                    
                     </div>
-                        <button type="button" id="download"class="btn btn-info" style="height: fit-content">Save as Image</button>
-                
+                        <button type="button" id="download"class="btn btn-info" style="height: fit-content">Save as Image</button>             
                 </div>
-              
             </div>
-
         </div>
 
 
@@ -88,39 +86,18 @@
             };
         </script>
 
-   <script>
-        document.getElementById("download").addEventListener("click", function() {
-        html2canvas(document.querySelector('#canvas')).then(function(canvas) 
-        {
-            saveAs(canvas.toDataURL(), 'SpotifyLyric.png');
-            });
-        });
+        <script>
+           
+              $("#download").on("click", function () {
+                    html2canvas(document.querySelector("#rect")).then(canvas => {
+                        canvas.toBlob(function (blob) {
+                            // Generate file download
+                            window.saveAs(blob, "Spotify-Lyric.png");
+                        });
+                    });
+                });   
+        </script>
 
-        function saveAs(uri, filename) 
-        {
-        
-            var link = document.createElement('a');
-            if (typeof link.download === 'string') {
-            
-            link.href = uri;
-            link.download = filename;
-            
-            //Firefox requires the link to be in the body
-            document.body.appendChild(link);
-            
-            //simulate click
-            link.click();
-            
-            //remove the link when done
-            document.body.removeChild(link);
-            
-            } else {
-            
-            window.open(uri);
-        
-        }
-    }
-    </script>>
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" style="background-color:#b2b2b2">
             <a class="text-dark" href="https://github.com/asiiapiazza">Made By Asia Piazza</a>

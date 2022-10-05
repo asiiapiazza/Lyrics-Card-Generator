@@ -17,6 +17,7 @@
   "homepage": "https://github.com/asiiapiazza/asiiapiazza.github.io#readme",
   "description": "",
   "dependencies": {
+    "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1"
   }
 }
