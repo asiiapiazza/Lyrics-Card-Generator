@@ -60,7 +60,7 @@ footer {
 @font-face {
     font-family: CircularStd;
     font-weight: bold;
-    src: url('Fonts/CircularStd-Bold.otf');
+    src: url('../Fonts/CircularStd-Bold.otf');
 
 
 }
@@ -68,7 +68,7 @@ footer {
 @font-face {
     font-family: CircularStd;
     font-weight: normal;
-    src: url('Fonts/CircularStd-Book.otf');
+    src: url('../Fonts/CircularStd-Book.otf');
 }
 
 h2 {
