@@ -16,21 +16,21 @@
             <div class="main-div" >
                 <!-- -------------------CANVAS------------------ -->
                 <div class="canvas" id="canvas" style="border-radius: 20px; background-color: transparent;" >
-                    <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;    box-shadow: 2px 2px 27px 7px rgba(0, 0, 0, 0.85)">
+                    <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;">
                         <div class="content-rect">
                             <div class="songs-info">
                                 <p id="output2"><img src="https://via.placeholder.com/80"id="output"style="width:80px; 
                                 height:80px; object-fit: cover;";/> </p>
                                 <div style="display: flex; flex-direction: column; margin-left: 20px">
                                   
-                                        <h1 id="text-name" contenteditable="true" style="width: 360px; outline: 0px solid transparent;">Insert Name Song</h1>
-                                        <h3 contenteditable="true" id="text-author" style="font-size: 15px; width: 360px; outline: 0px solid transparent;">Insert Author</h3>
+                                        <h1 id="text-name" spellcheck="false" contenteditable="true" style="width: 350px; outline: 0px solid transparent;">Insert Name Song</h1>
+                                        <h3 contenteditable="true" spellcheck="false" id="text-author" style="font-size: 15px; width: 360px; outline: 0px solid transparent;">Insert Author</h3>
                                     
                                 </div>              
                             </div>
 
                        
-                                <h2 id="text-lyric" style="width: 480px; outline: 0px solid transparent;"contenteditable="true">
+                                <h2 id="text-lyric" spellcheck="false" style="width: 480px; outline: 0px solid transparent;"contenteditable="true">
                                     Click to edit<br>
                                     Press enter to insert new lines<br>
                                     Or just paste some text</h2>
@@ -54,7 +54,7 @@
 
                     <div class="div2"> 
                         <h3 style="font-size: 20px;">Change border radius: </h3>
-                        <input type="range" class="form-range" min="0" max="20" step="1" id="border"  >
+                        <input type="range" class="form-range" value="20" min="0" max="20" step="1" id="border"  >
                     </div>
 
 
@@ -115,10 +115,10 @@
            
                 document.getElementById("border").addEventListener("input", function () 
                 {
-                    document.getElementById("rect").style.borderRadius = this.value
+                    document.getElementById("rect").style.borderRadius = this.value +"px"
                     console.log(this.value)
                     console.log(document.getElementById("rect").style.borderRadius)
-                    document.getElementById("canvas").style.borderRadius = this.value
+                    document.getElementById("canvas").style.borderRadius = this.value + "px"
                 })                            
             
         </script>
