@@ -14,7 +14,8 @@
   "bugs": {
     "url": "https://github.com/asiiapiazza/asiiapiazza.github.io/issues"
   },
-  "homepage": "https://asiiapiazza.github.io/Spotify-Lyrics-Card/src",
+  
+  "homepage": "https://github.com/asiiapiazza/asiiapiazza.github.io/Spotify-Lyrics-Card/src",
   "description": "",
   "dependencies": {
     "file-saver": "^2.0.5",
