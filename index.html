@@ -10,13 +10,13 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     </head>
-    <body >
+    <body>
         <div class="container" >
             <h2 style="font-size: 70px;">Spotify Lyrics Card Maker</h2>
-            <div class="main-div" >
+            <div class="main-div" style="height: 10px" >
                 <!-- -------------------CANVAS------------------ -->
-                <div class="canvas" id="canvas" style="border-radius: 50px; background-color: transparent;">
-                    <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;">
+                <div class="canvas" id="canvas" style="border-radius: 20px; background-color: transparent;" >
+                    <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;    box-shadow: 2px 2px 27px 7px rgba(0, 0, 0, 0.85)">
                         <div class="content-rect">
                             <div class="songs-info">
                                 <p id="output2"><img src="https://via.placeholder.com/80"id="output"style="width:80px; 
@@ -38,7 +38,7 @@
 
                             <!-- <input type="text" id="" /> -->
                             <div>
-                                <img src="../Assets/spotify.png" class="spotify-logo" />
+                                <img src="Assets/spotify.png" class="spotify-logo" />
                             </div>
                         </div>
                     </div>
@@ -46,18 +46,31 @@
 
 
                 <!-- -------------------OPZIONI------------------ -->
-                <div class="options" style="width: 800px; display: flex;flex-direction: column;">
-                    <div style="display:flex; flex-direction: row; align-content: space-around;">
-                        <p style="height:fit-content"><input id="pick-file" type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)""></p>                             
-                        
-                            <h3 style="font-size: 20px; margin-left: 20px;">Change card color: </h3>
-                            <input id="color-card" type="color" value="#F68686" />
-                            <h3 style="font-size: 20px; margin-left: 20px;">Change text color: </h3>
-                            <input id="color-text" type="color" value="#F68686" />
-                   
+                <div class="parent">
+                    <div class="div1">
+                        <p style="height:fit-content"><input id="pick-file" type="file" accept="image/*" name="image" id="file"
+                        onchange="loadFile(event)""></p>                             
+                    </div>      
+
+                    <div class="div2"> 
+                        <h3 style="font-size: 20px;">Change border radius: </h3>
+                        <input type="range" class="form-range" min="0" max="20" step="1" id="border"  >
                     </div>
-                        <button type="button" id="download"class="btn btn-info" style="height: fit-content">Save as Image</button>             
-                </div>
+
+
+                    <div class="div3">
+                        <h3 style="font-size: 20px;">Change text color: </h3>
+                        <input id="color-text" type="color" value="#F68686" />
+                    </div>
+                    <div class="div4"> 
+                        <button type="button" id="download" class="btn btn-info" style="height: fit-content">Save as Image</button>
+                    </div>              
+                    <div class="div5"> 
+                        <h3 style="font-size: 20px;">Change card color: </h3>
+                        <input id="color-card" type="color" value="#F68686" />
+                    </div>
+             </div>
+           
             </div>
         </div>
 
@@ -87,9 +100,8 @@
         </script>
 
         <script>
-           
               $("#download").on("click", function () {
-                    html2canvas(document.querySelector("#rect")).then(canvas => {
+                    html2canvas(document.querySelector("#rect"), { backgroundColor: null },  { scale: window.devicePixelRatio }).then(canvas => {
                         canvas.toBlob(function (blob) {
                             // Generate file download
                             window.saveAs(blob, "Spotify-Lyric.png");
@@ -98,6 +110,19 @@
                 });   
         </script>
 
+
+        <script>
+           
+                document.getElementById("border").addEventListener("input", function () 
+                {
+                    document.getElementById("rect").style.borderRadius = this.value
+                    console.log(this.value)
+                    console.log(document.getElementById("rect").style.borderRadius)
+                    document.getElementById("canvas").style.borderRadius = this.value
+                })                            
+            
+        </script>
+        
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" style="background-color:#b2b2b2">
             <a class="text-dark" href="https://github.com/asiiapiazza">Made By Asia Piazza</a>
