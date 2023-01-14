@@ -14,9 +14,10 @@
         <div class="container" >
             <h2 style="font-size: 70px;">Spotify Lyrics Card Maker</h2>
             <div class="main-div" >
+                
+
                 <!-- -------------------CANVAS------------------ -->
-                <div class="canvas" id="canvas" style="border-radius: 20px; background-color: transparent;" >
-                    <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;">
+                  <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;">
                         <div class="content-rect">
                             <div class="songs-info">
                                 <p id="output2"><img src="https://via.placeholder.com/80"id="output"style="width:80px; 
@@ -42,35 +43,33 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-
+                    
                 <!-- -------------------OPZIONI------------------ -->
                 <div class="parent">
                     <div class="div1">
                         <p style="height:fit-content"><input id="pick-file" type="file" accept="image/*" name="image" id="file"
-                        onchange="loadFile(event)""></p>                             
-                    </div>      
-
-                    <div class="div2"> 
+                                onchange="loadFile(event)""></p>                             
+                                    </div>      
+                
+                                    <div class=" div2">
                         <h3 style="font-size: 20px;">Change border radius: </h3>
-                        <input type="range" class="form-range" value="20" min="0" max="20" step="1" id="border"  >
+                        <input type="range" class="form-range" value="20" min="0" max="20" step="1" id="border">
                     </div>
-
-
+                
+                
                     <div class="div3">
                         <h3 style="font-size: 20px;">Change text color: </h3>
                         <input id="color-text" type="color" value="#F68686" />
                     </div>
-                    <div class="div4"> 
+                    <div class="div4">
                         <button type="button" id="download" class="btn btn-info" style="height: fit-content">Save as Image</button>
-                    </div>              
-                    <div class="div5"> 
+                    </div>
+                    <div class="div5">
                         <h3 style="font-size: 20px;">Change card color: </h3>
                         <input id="color-card" type="color" value="#F68686" />
+                        </div>
                     </div>
-             </div>
-           
+                </div>
             </div>
         </div>
 
@@ -96,6 +95,7 @@
                 var image = document.getElementById('output');
                 image.src = URL.createObjectURL(event.target.files[0]);
                 image.hidden = false
+                
             };
         </script>
 
@@ -126,6 +126,7 @@
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" style="background-color:#b2b2b2">
             <a class="text-dark" href="https://github.com/asiiapiazza">Made By Asia Piazza</a>
+            <a class="text-dark" href="https://ko-fi.com/asiapiazza">| Ko-Fi </a>
         </div>
     </footer>
     </body>
