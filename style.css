@@ -4,15 +4,109 @@
     background-color: #F68686;
     flex-direction: column;
     display: flex;
+
+}
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+/* Modifichiamo il layout in base alle dimensioni dello schermo */
+@media (max-width: 768px) {
+
+    .main-div {
+        flex-direction: column;
+    }
+
+    .spotifytext {
+        text-align: center;
+    }
+
+    .parent {
+        margin-top: 6%;
+
+
+    }
+}
+
+@media (max-width:320px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .main-div {
+            flex-direction: column;
+        }
+                 .parent {
+                     margin-top: 6%;
+        
+        
+                 }
+}
+
+@media (max-width:481px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .main-div {
+            flex-direction: column;
+        } .parent {
+             margin-top: 6%;
+        
+        
+         }
+}
+
+@media (max-width:641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .main-div {
+            flex-direction: column;
+        }
+                 .parent {
+                     margin-top: 6%;
+        
+        
+                 }
+}
+
+@media (max-width:961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .main-div {
+            flex-direction: column;
+        }
+                 .parent {
+                     margin-top: 6%;
+        
+        
+                 }
+}
+
+@media (max-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .main-div {
+            flex-direction: column;
+        }
+                 .parent {
+                     margin-top: 6%;
+        
+        
+                 }
+}
+
+
+
+body {
+
+    overflow-x: hidden;
     
+    /* Hide horizontal scrollbar */
+}
+
+html
+{
+    height: 100%;
 }
 
 
 .parent {
     display: grid;
     position: sticky;
-    height: fit-content;
+
     grid-column-gap: 0px;
+
     grid-row-gap: 50px;
 }
 
@@ -38,9 +132,16 @@
 
 .container {
     margin: auto;
-    width: 50%;
+    min-height:fit-content;
+    width: min(100% - 30px, 840px);
+    margin-inline: auto;
     padding: 10px;
+    margin-top: 5%;
+    align-items: center;
 }
+
+
+
 
 .main-div {
     display: flex;
@@ -48,14 +149,16 @@
     column-gap: 10%;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 footer {
-    margin-top: auto;
+    bottom: 0;
+    height: 2em;
+    left: 0;
+    position: relative;
+    width: 100%;
+    width: 100%;
+    text-align: center;
+
+
 }
 
 .songs-info {
@@ -64,9 +167,6 @@ footer {
     margin-top: 10px
 }
 
-.container {
-    margin-top: 3%
-}
 
 
 .content-rect {
