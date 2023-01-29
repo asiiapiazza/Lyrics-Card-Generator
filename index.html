@@ -101,8 +101,9 @@
                         canvas.toBlob(function (blob) {
                             // Generate file download
                             var h1content = document.getElementById("text-name").innerHTML;
-                            h1content += ".png";
-                            window.saveAs(blob, h1content);
+                            var newTitle = h1content.replace(/(<([^>]+)>)/ig, "");
+                            newTitle += ".png";
+                            window.saveAs(blob, newTitle);
                         });
                     });
                 });   
