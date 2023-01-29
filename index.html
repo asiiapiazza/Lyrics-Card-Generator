@@ -100,7 +100,9 @@
                     html2canvas(document.querySelector("#rect"), { backgroundColor: null },  { scale: window.devicePixelRatio }).then(canvas => {
                         canvas.toBlob(function (blob) {
                             // Generate file download
-                            window.saveAs(blob, "Spotify-Lyric.png");
+                            var h1content = document.getElementById("text-name").innerHTML;
+                            h1content += ".png";
+                            window.saveAs(blob, h1content);
                         });
                     });
                 });   
@@ -123,7 +125,7 @@
         <div class="text-center p-3">
             <a class="text-dark" href="https://github.com/asiiapiazza">Made By Asia Piazza</a>
             <a class="text-dark" href="https://ko-fi.com/asiapiazza">| Ko-Fi </a>
-            <a class="text-dark">| Not Affiliated with Spotify </a>
+    
         </div>
     </footer>
     </body>
