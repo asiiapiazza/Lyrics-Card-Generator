@@ -83,7 +83,20 @@
                 document.getElementById("text-name").style.color = this.value;
                 document.getElementById("text-lyric").style.color = this.value;
                 document.getElementById("text-author").style.color = this.value;
-            })   
+            }) 
+
+            function handle_paste(id) //we create the function to apply it to every text box
+            {
+                document.getElementById(id).addEventListener("paste", function(e){ //listen when we paste text
+                    e.preventDefault(); //we prevent the style from also pasting
+                    var text_to_paste = e.clipboardData.getData("text/plain"); //we get the plain text from the clipboard
+                    document.execCommand("insertText", false, text_to_paste); //we insert the new, cleaned text
+                });
+            }
+
+            handle_paste("text-name"); //we apply it to every single box
+            handle_paste("text-lyric");
+            handle_paste("text-author");
         </script>
 
         <script>
