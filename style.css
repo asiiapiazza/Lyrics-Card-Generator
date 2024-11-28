@@ -1,98 +1,15 @@
-.rect-default {
-
-    position: relative;
-    background-color: #F68686;
-    flex-direction: column;
-    display: flex;
-
-}
-
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
-
-/* Modifichiamo il layout in base alle dimensioni dello schermo */
-@media (max-width: 768px) {
-
-    .main-div {
-        flex-direction: column;
-    }
-
-    .spotifytext {
-        text-align: center;
-    }
-
-    .parent {
-        margin-top: 6%;
-
-
-    }
-}
-
-@media (max-width:320px) {
-    /* smartphones, iPhone, portrait 480x320 phones */
-    .main-div {
-            flex-direction: column;
-        }
-                 .parent {
-                     margin-top: 6%;
-        
-        
-                 }
-}
-
-@media (max-width:481px) {
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-    .main-div {
-            flex-direction: column;
-        } .parent {
-             margin-top: 6%;
-        
-        
-         }
-}
-
-@media (max-width:641px) {
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    .main-div {
-            flex-direction: column;
-        }
-                 .parent {
-                     margin-top: 6%;
-        
-        
-                 }
-}
-
-@media (max-width:961px) {
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .main-div {
-            flex-direction: column;
-        }
-                 .parent {
-                     margin-top: 6%;
-        
-        
-                 }
-}
-
-@media (max-width:1025px) {
-    /* big landscape tablets, laptops, and desktops */
-    .main-div {
-            flex-direction: column;
-        }
-                 .parent {
-                     margin-top: 6%;
-        
-        
-                 }
-}
-
-
-
 body {
-
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
     overflow-x: hidden;
-    
-    /* Hide horizontal scrollbar */
 }
 
 html
@@ -100,65 +17,85 @@ html
     height: 100%;
 }
 
-
-.parent {
-    display: grid;
-    position: sticky;
-
-    grid-column-gap: 0px;
-
-    grid-row-gap: 50px;
-}
-
-.div1 {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.div2 {
-    grid-area: 1 / 3 / 2 / 4;
-}
-
-.div3 {
-    grid-area: 2 / 1 / 3 / 2;
-}
-
-.div4 {
-    grid-area: 3 / 1 / 4 / 2;
-}
-
-.div5 {
-    grid-area: 2 / 3 / 3 / 4;
-}
-
 .container {
+    max-width: auto;
+    width: min(100% - 30px, 840px);
+    padding-top: 25px;
+    background: white;
+    overflow: hidden;
     margin: auto;
     min-height:fit-content;
-    width: min(100% - 30px, 840px);
-    margin-inline: auto;
-    padding: 10px;
     margin-top: 5%;
-    align-items: center;
+    
 }
 
-
-
-
-.main-div {
+.main-rows {
     display: flex;
-    margin-top: 5%;
-    column-gap: 10%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin: 20px 0; 
+    gap: 40px;
+    padding-top:40px;
+    
 }
 
-footer {
-    bottom: 0;
-    height: 2em;
-    left: 0;
+
+h2 {
+    font-family: CircularStd;
+    font-weight: bold !important;
+}
+
+h3 {
+    font-family: CircularStd;
+    font-weight: normal;
+
+}
+
+h2.spotifytext {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content-rect {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.content-rect h1,
+.content-rect h3,
+.content-rect h2 {
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.content-rect h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.content-rect h3 {
+    font-size: 1rem;
+    color: #666;
+}
+
+.content-rect h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+.rect-default {
     position: relative;
-    width: 100%;
-    width: 100%;
-    text-align: center;
-
-
+    background-color: #ffe2a4;
+    padding: 40px;
+    margin: 40px auto;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: background 0.27s ease;
 }
 
 .songs-info {
@@ -168,10 +105,100 @@ footer {
 }
 
 
+.songs-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
 
-.content-rect {
-    margin-left: 20px;
-    margin-top: 10px;
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px; 
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.253);
+    flex: 1; 
+    max-width: 50%; 
+    gap: 10px;
+}
+
+.parent div {
+    display: flex;
+    flex: 1 1 calc(50% - 20px);
+    margin: 8px;
+    padding: 3px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.div1 p{
+    padding-top: 25px;
+}
+
+.div1 input[type="file"]::file-selector-button {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.div1 input[type="file"]:hover::file-selector-button {
+    background-color: #ddd;
+}
+
+
+.parent button{
+    width: 40%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.gradientcolor {
+    visibility: visible;
+}
+
+.gradientcolor input{
+    margin-top:-20px;
+    float: right;
+    margin-right: 30px;
+}
+
+
+.parent h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.parent p {
+    font-size: 14px;
+    color: #666;
+}
+
+footer {
+    bottom: 0;
+    height: 2em;
+    left: 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-card {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color:white;
+    
 }
 
 .spotify-logo {
@@ -180,10 +207,8 @@ footer {
     margin-bottom: 15px;
 }
 
-.footer-card {
-    position: absolute;
-    bottom: 0;
-}
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
 
 @font-face {
     font-family: CircularStd;
@@ -199,13 +224,87 @@ footer {
     src: url('Fonts/CircularStd-Book.otf');
 }
 
-h2 {
-    font-family: CircularStd;
-    font-weight: bold !important;
+/* Modifichiamo il layout in base alle dimensioni dello schermo */
+@media (max-width:1025px) {
+
+    /* big landscape tablets, laptops, and desktops */
+    .main-div {
+        flex-direction: column;
+    }
+
+    .parent {
+        margin-top: 6%;
+    }
+    
+    .gradientcolor input[type=range]{
+        margin-top: 10px;
+    }
 }
 
-h3 {
-    font-family: CircularStd;
-    font-weight: normal;
+@media (max-width:992px) {
 
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .main-div {
+        flex-direction: column;
+    }
+
+    .main-rows {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .div4 button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150%;
+        position: relative;
+        margin-right: 70px;
+        padding:10px;
+    }
+
+    .parent {
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-div {
+        flex-direction: column;
+    }
+
+    .container{
+        text-align: center;
+    }
+
+    .main-rows {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .parent {
+        margin-top: -65px;
+    }
+}
+
+@media (max-width:641px) {
+
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    /* smartphones, iPhone, portrait 480x320 phones */
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .main-div {
+        flex-direction: column;
+    }
+    
+    .main-rows {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .parent {
+        margin-top: 6%;
+    }
 }
