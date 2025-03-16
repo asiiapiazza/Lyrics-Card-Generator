@@ -1,185 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
-        <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
-        <link rel="stylesheet" href="style.css">
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    </head>
-    <body>
-        <div class="container" >
-            <h2 style="font-size: 60px;" class="spotifytext">Lyrics Card Maker</h2>
-    
-                <!-- -------------------CANVAS------------------ -->
-                <div class="main-rows">
-                <div class="rect-default" id="rect" style="border-radius:20px; width: 500px; height: fit-content;">
-                        <div class="content-rect">
-                            <div class="songs-info">
-                                <p id="output2"><img src="https://via.placeholder.com/80"id="output"style="width:80px; 
-                                height:80px; object-fit: cover;";/> </p>
-                                <div style="display: flex; flex-direction: column; margin-left: 20px">
-                                  
-                                        <h1 id="text-name" spellcheck="false" contenteditable="true" style="width: 350px; outline: 0px solid transparent;">Insert Name Song</h1>
-                                        <h3 contenteditable="true" spellcheck="false" id="text-author" style="font-size: 15px; width: 360px; outline: 0px solid transparent;">Insert Author</h3>
-                                    
-                                </div>              
-                            </div>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-                       
-                                <h2 id="text-lyric" spellcheck="false" style="width: 480px;margin-top: 20px;  margin-bottom: 20px; outline: 0px solid transparent; "contenteditable="true">
-                                    Click to edit<br>
-                                    Press enter to insert new lines<br>
-                                    Or just paste some text</h2>
-                   
+</head>
 
-                           
+<body>
+    <div class="container">
+        <h2 style="font-size: 60px;" class="spotifytext">Lyrics Card Maker</h2>
+
+        <!-- -------------------CANVAS------------------ -->
+        <div class="main-rows">
+            <div class="rect-default" id="rect">
+                <div class="content-rect">
+                    <div class="songs-info">
+                        <p id="output2"><img src="https://via.placeholder.com/80" id="output" style="width:80px; 
+                                height:80px; object-fit: cover;" ; /> </p>
+                        <div style="display: flex; flex-direction: column; margin-left: 20px">
+
+                            <h1 id="text-name" spellcheck="false" contenteditable="true"
+                                style="width: 350px; outline: 0px solid transparent;">Insert Name Song</h1>
+                            <h3 contenteditable="true" spellcheck="false" id="text-author"
+                                style="font-size: 15px; width: 360px; outline: 0px solid transparent;">Insert Author
+                            </h3>
+
                         </div>
                     </div>
-                    
-                <!-- -------------------OPZIONI------------------ -->
-                <div class="parent">
-                    <div class="div1">
-                        <p style="height:fit-content"><input id="pick-file" type="file" accept="image/*" name="image" id="file"
-                                onchange="loadFile(event)""></p>                             
+
+
+                    <h2 id="text-lyric" spellcheck="false"
+                        style="width: 480px;margin-top: 20px;  margin-bottom: 20px; outline: 0px solid transparent; "
+                        contenteditable="true">
+                        Click to edit<br>
+                        Press enter to insert new lines<br>
+                        Or just paste some text</h2>
+
+
+
+                </div>
+
+            </div>
+
+            <!-- -------------------OPZIONI------------------ -->
+            <div class="parent">
+                <div class="div1">
+                    <p style="height:fit-content"><input id="pick-file" type="file" accept="image/*" name="image"
+                            id="file" onchange="loadFile(event)""></p>                             
                                     </div>      
                 
                                     <div class=" div2">
-                        <h3 style="font-size: 20px;">border radius: </h3>
-                        <input type="range" class="form-range" value="20" min="0" max="20" step="1" id="border">
-                    </div>
-                
-                
-                    <div class="div3">
-                        <h3 style="font-size: 20px;">text color: </h3>
-                        <input id="color-text" type="color" value="#ffe2a4" />
-                    </div>
-                    <div class="div5">
-                        <h3 style="font-size: 20px;">card color: </h3>
-                        <input id="color-card" type="color" value="#ffe2a4" />
-                    </div>
-                    <div class="div5">
-                        <h3 style="font-size: 20px;">Gradient: </h3>
-                        <label class="switch">
-                            <input type="checkbox" id="gradient-toggle">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="gradientcolor" id="gradient-options" style="display: none;">
-                        <input type="color" id="gradient-color1" value="#ffe2a4" />
-                        <input type="color" id="gradient-color2" value="#FFFFFF" />
-                        <input type="range" id="gradient-angle" placeholder="Angle (e.g., 45)" value="10" min="0" max="360" step="1"/>
-
-        
-                    </div>
-                    <div class="div4">
-                        <button type="button" id="download" class="btn btn-info" style="height: fit-content">Save as Image</button>
-                    </div>
+                    <h3 style="font-size: 20px;">border radius: </h3>
+                    <input type="range" class="form-range" value="20" min="0" max="20" step="1" id="border">
                 </div>
+
+                <div class="div6">
+                    <h3 style="font-size: 20px;" id="width-label">width: </h3>
+                    <input type="range" class="form-range" value="300" min="200" max="600" step="1" id="widthCard">
+                </div>
+                <div class="div6">
+                    <h3 style="font-size: 20px;" id="height-label">height: </h3>
+                    <input type="range" class="form-range" value="300" min="200" max="600" step="1" id="heightCard">
+                </div>
+                <div class="div6">
+                    <h3 style="font-size: 20px;" id="whiteSpace-label">white space: </h3>
+                    <input type="range" class="form-range" value="40" min="0" max="100" step="1" id="whiteSpace">
+                </div>
+
+
+                <div class="div3">
+                    <h3 style="font-size: 20px;">text color: </h3>
+                    <input id="color-text" type="color" value="#ffe2a4" />
+                </div>
+                <div class="div5">
+                    <h3 style="font-size: 20px;">card color: </h3>
+                    <input id="color-card" type="color" value="#ffe2a4" />
+                </div>
+                <div class="div5">
+                    <h3 style="font-size: 20px;">Gradient: </h3>
+                    <label class="switch">
+                        <input type="checkbox" id="gradient-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="gradientcolor" id="gradient-options" style="display: none;">
+                    <input type="color" id="gradient-color1" value="#ffe2a4" />
+                    <input type="color" id="gradient-color2" value="#FFFFFF" />
+                    <input type="range" id="gradient-angle" placeholder="Angle (e.g., 45)" value="10" min="0" max="360"
+                        step="1" />
+
+
+                </div>
+                <div class="div4">
+                    <button type="button" id="download" class="btn btn-info" style="height: fit-content">Save as
+                        Image</button>
+                </div>
+
+
+            </div>
+
         </div>
-        </div>  
+    </div>
 
 
 
 
-        <!-- -------------------SCRIPT------------------ -->
-        <script>
-            document.getElementById("color-card").addEventListener("input", function () 
-            {
-                document.getElementById("rect").style.backgroundColor = this.value;
-            })   
+    <!-- -------------------SCRIPT------------------ -->
+    <script>
+        document.getElementById("color-card").addEventListener("input", function () {
+            document.getElementById("rect").style.backgroundColor = this.value;
 
-            document.getElementById("color-text").addEventListener("input", function () 
-            {          
-                document.getElementById("text-name").style.color = this.value;
-                document.getElementById("text-lyric").style.color = this.value;
-                document.getElementById("text-author").style.color = this.value;
-            }) 
+        })
 
-            document.getElementById("gradient-toggle").addEventListener("change", function () {
-                const gradientOptions = document.getElementById("gradient-options");
-                if (this.checked) {
-                    gradientOptions.style.display = "block";
-                    gradientOptions.offsetHeight;
-                    applyGradient();
-                } else {
-                    gradientOptions.style.display = "none";
-                    document.getElementById("rect").style.background = document.getElementById("color-card").value;
-                }
+        document.getElementById("color-text").addEventListener("input", function () {
+            document.getElementById("text-name").style.color = this.value;
+            document.getElementById("text-lyric").style.color = this.value;
+            document.getElementById("text-author").style.color = this.value;
+        })
+
+        document.getElementById("gradient-toggle").addEventListener("change", function () {
+            const gradientOptions = document.getElementById("gradient-options");
+            if (this.checked) {
+                gradientOptions.style.display = "block";
+                gradientOptions.offsetHeight;
+                applyGradient();
+            } else {
+                gradientOptions.style.display = "none";
+                document.getElementById("rect").style.background = document.getElementById("color-card").value;
+            }
+        });
+
+        function applyGradient() {
+            const color1 = document.getElementById("gradient-color1").value;
+            const color2 = document.getElementById("gradient-color2").value;
+            const angle = document.getElementById("gradient-angle").value || 45;
+            document.getElementById("rect").style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+        }
+
+        document.getElementById("gradient-color1").addEventListener("input", applyGradient);
+        document.getElementById("gradient-color2").addEventListener("input", applyGradient);
+        document.getElementById("gradient-angle").addEventListener("input", applyGradient);
+
+        function handle_paste(id) //we create the function to apply it to every text box
+        {
+            document.getElementById(id).addEventListener("paste", function (e) { //listen when we paste text
+                e.preventDefault(); //we prevent the style from also pasting
+                var text_to_paste = e.clipboardData.getData("text/plain"); //we get the plain text from the clipboard
+                document.execCommand("insertText", false, text_to_paste); //we insert the new, cleaned text
             });
-            
-            function applyGradient() {
-                const color1 = document.getElementById("gradient-color1").value;
-                const color2 = document.getElementById("gradient-color2").value;
-                const angle = document.getElementById("gradient-angle").value || 45;
-                document.getElementById("rect").style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
-            }
-            
-            document.getElementById("gradient-color1").addEventListener("input", applyGradient);
-            document.getElementById("gradient-color2").addEventListener("input", applyGradient);
-            document.getElementById("gradient-angle").addEventListener("input", applyGradient);
+        }
 
-            function handle_paste(id) //we create the function to apply it to every text box
-            {
-                document.getElementById(id).addEventListener("paste", function(e){ //listen when we paste text
-                    e.preventDefault(); //we prevent the style from also pasting
-                    var text_to_paste = e.clipboardData.getData("text/plain"); //we get the plain text from the clipboard
-                    document.execCommand("insertText", false, text_to_paste); //we insert the new, cleaned text
+        handle_paste("text-name"); //we apply it to every single box
+        handle_paste("text-lyric");
+        handle_paste("text-author");
+    </script>
+
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.hidden = false
+
+        };
+    </script>
+
+    <script>
+        $("#download").on("click", function () {
+            html2canvas(document.querySelector("#rect"), {
+                backgroundColor: null,
+                scale: 3 // Increase the scale for higher resolution
+            }).then(canvas => {
+                canvas.toBlob(function (blob) {
+                    var h1content = document.getElementById("text-name").innerHTML;
+                    var newTitle = h1content.replace(/(<([^>]+)>)/ig, "");
+                    newTitle += ".png";
+                    window.saveAs(blob, newTitle);
                 });
-            }
-
-            handle_paste("text-name"); //we apply it to every single box
-            handle_paste("text-lyric");
-            handle_paste("text-author");
-        </script>
-
-        <script>
-            var loadFile = function (event) {
-                var image = document.getElementById('output');
-                image.src = URL.createObjectURL(event.target.files[0]);
-                image.hidden = false
-                
-            };
-        </script>
-
-        <script>
-              $("#download").on("click", function () {
-                html2canvas(document.querySelector("#rect"), { 
-                    backgroundColor: null, 
-                    scale: 3 // Increase the scale for higher resolution
-                }).then(canvas => {
-                    canvas.toBlob(function (blob) {
-                        var h1content = document.getElementById("text-name").innerHTML;
-                        var newTitle = h1content.replace(/(<([^>]+)>)/ig, "");
-                        newTitle += ".png";
-                        window.saveAs(blob, newTitle);
-                    });
-                });
-                });   
-        </script>
+            });
+        });   
+    </script>
 
 
-        <script>
-           
-                document.getElementById("border").addEventListener("input", function () 
-                {
-                    document.getElementById("rect").style.borderRadius = this.value +"px"
-                    console.log(this.value)
-                    console.log(document.getElementById("rect").style.borderRadius)
-                    document.getElementById("canvas").style.borderRadius = this.value + "px"
-                })                            
-            
-        </script>
-        
+    <script>
+
+        document.getElementById("border").addEventListener("input", function () {
+            document.getElementById("rect").style.borderRadius = this.value + "px"
+            console.log(this.value)
+            console.log(document.getElementById("rect").style.borderRadius)
+            document.getElementById("canvas").style.borderRadius = this.value + "px"
+        });
+        document.getElementById("widthCard").addEventListener("input", function () {
+            document.getElementById("rect").style.width = this.value + "px";
+            document.getElementById("width-label").innerText = "width: " + this.value + "px";
+        })
+        document.getElementById("heightCard").addEventListener("input", function () {
+            document.getElementById("rect").style.height = this.value + "px";
+            document.getElementById("height-label").innerText = "height: " + this.value + "px";
+
+        })
+        document.getElementById("whiteSpace").addEventListener("input", function () {
+            document.getElementById("rect").style.padding = this.value + "px";
+            document.getElementById("whiteSpace-label").innerText = "white space: " + this.value + "px";
+
+        })
+
+    </script>
+
     <footer class="footer" style="position: static; background-color: transparent !important; margin-top: 9%;">
         <div class="text-center p-3">
             <a class="text-dark" href="https://github.com/asiiapiazza">Made By Asia Piazza</a>
             <a class="text-dark" href="https://ko-fi.com/asiapiazza">| Ko-Fi </a>
-    
+
         </div>
     </footer>
-    </body>
+</body>
+
 </html>
