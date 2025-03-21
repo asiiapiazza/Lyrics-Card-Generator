@@ -12,8 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-html
-{
+html {
     height: 100%;
 }
 
@@ -24,20 +23,20 @@ html
     background: white;
     overflow: hidden;
     margin: auto;
-    min-height:fit-content;
+    min-height: fit-content;
     margin-top: 5%;
-    
+
 }
 
 .main-rows {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start; 
-    margin: 20px 0; 
+    align-items: flex-start;
+    margin: 20px 0;
     gap: 40px;
-    padding-top:40px;
-    
+    padding-top: 40px;
+
 }
 
 
@@ -115,11 +114,11 @@ h2.spotifytext {
 .parent {
     display: flex;
     flex-wrap: wrap;
-    margin: -10px; 
+    margin: -10px;
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.253);
-    flex: 1; 
-    max-width: 50%; 
+    flex: 1;
+    max-width: 50%;
     gap: 10px;
 }
 
@@ -134,7 +133,7 @@ h2.spotifytext {
     margin-right: 40px;
 }
 
-.div1 p{
+.div1 p {
     padding-top: 25px;
 }
 
@@ -152,22 +151,21 @@ h2.spotifytext {
 }
 
 
-.parent button{
+.parent button {
     width: 40%;
     padding: 14px 20px;
     border: none;
     border-radius: 7px;
     cursor: pointer;
     margin-bottom: 50px;
-    margin-left: 50px;
 }
 
 .gradientcolor {
     visibility: visible;
 }
 
-.gradientcolor input{
-    margin-top:-20px;
+.gradientcolor input {
+    margin-top: -20px;
     float: right;
     margin-right: 30px;
 }
@@ -197,8 +195,8 @@ footer {
     position: absolute;
     bottom: 0;
     text-align: center;
-    color:white;
-    
+    color: white;
+
 }
 
 .spotify-logo {
@@ -235,8 +233,8 @@ footer {
     .parent {
         margin-top: 6%;
     }
-    
-    .gradientcolor input[type=range]{
+
+    .gradientcolor input[type=range] {
         margin-top: 10px;
     }
 }
@@ -252,17 +250,17 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
     }
 
-    .div4 button{
+    .div4 button {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 150%;
         position: relative;
         margin-right: 70px;
-        padding:10px;
+        padding: 10px;
     }
 
     .parent {
@@ -276,7 +274,7 @@ footer {
         flex-direction: column;
     }
 
-    .container{
+    .container {
         text-align: center;
     }
 
@@ -299,7 +297,7 @@ footer {
     .main-div {
         flex-direction: column;
     }
-    
+
     .main-rows {
         display: flex;
         flex-direction: column;
